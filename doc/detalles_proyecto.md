@@ -1,10 +1,10 @@
 # Proyecto de Automatización para la Identificación de Sitios de Unión de Factores de Transcripción en E. coli en experimentos de ChIP-Seq
 
-Fecha: [dd/mm/yyyy]
+Fecha: [11/03/2025]
 
 Participantes: 
 
-- [nombre]  <email: > 
+- [Miryam Zamora Jiménez]  <miryamzj@lcg,unam,mx > 
 
 ## Descripción del Problema
 <!-- Puedes empezar con una introducción, luego la justificación y plantear el problema. -->
@@ -18,14 +18,15 @@ El proyecto busca automatizar la extracción y el análisis de secuencias genóm
 
 #### A. Extracción de Secuencias FASTA:
     
-1.  **Entrada de Datos:**
-    
+1.  **Entrada de Datos:**OA
+    -	Verificar la existencia de los archivos antes de leerlos
+	- Verificar el formato FASTA de cada archivo
     -   El módulo debe aceptar como argumentos de línea de comandos los siguientes archivos:
         -   Archivo de picos que contiene la información de las regiones de unión de cada factor de transcripción (ver sección "Archivo de Picos" al final de la sección de requisitos).
         -   Archivo de la secuencia del genoma de _E. coli_ en formato FASTA.
     -   Añadir un argumento para especificar el directorio de salida donde se almacenarán los archivos generados.
 2.  **Extracción y Procesamiento de Secuencias:**
-    
+    -	Antes de leer el archivo, hay que revisar las coordenadas Peak_start y Peak_end para que su longitud no esté fuera del genoma que vamos a analizar
     -   Leer el archivo de picos para obtener las posiciones de inicio y fin de los picos asociados a cada `TF_name`.
     -   Extraer las secuencias desde el archivo FASTA del genoma utilizando las coordenadas `Peak_start` y `Peak_end`, asegurándose de considerar solamente la cadena forward.
 3.  **Generación de Archivos FASTA:**
@@ -156,7 +157,9 @@ Este archivo contiene información crucial sobre las regiones de unión de los 1
 4. Por cada TF_name:
    a. Crear archivo FASTA
    b. Escribir secuencias en archivo
-5. Fin
+   c. Escribir comentarios para clarificar el código
+5.- Agregar el manejo de excepciones en el código, por casos y su solución (Sobre todo posibles errores que yo pueda cometer)
+6. Fin
 ```
 
 #### Módulo 2: Automatizador del Análisis con `meme`
@@ -169,7 +172,8 @@ Este archivo contiene información crucial sobre las regiones de unión de los 1
     
     - Directorio con archivos fasta.
     
-2.  **Generación de Comandos:**
+2
+.  **Generación de Comandos:**
     
     -   Iterar sobre cada archivo `.fa` en el directorio.
     -   Generar una línea de comando para ejecutar `meme` usando cada archivo FASTA.
