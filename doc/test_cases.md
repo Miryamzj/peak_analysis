@@ -54,3 +54,11 @@ ls
 log.out
 fasta_peaks/
 ```
+4.- 
+
+4.- Caso: Directorio de salida no tiene permisos de escritura.
+
+Entradas:
+Un archivo de picos válido.
+Un archivo FASTA válido.
+Un directorio de salida donde el usuario no tiene permisos de escritura.
